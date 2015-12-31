@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="saleOrderPackage" namespace="/" extends="struts-default,json-default">
+		<action name="saleOrderAction_*" class="saleOrderAction"  method="{1}">
+		   <result name = "json" type="json"></result>
+		</action> 		
+	</package>
+	
+</struts>

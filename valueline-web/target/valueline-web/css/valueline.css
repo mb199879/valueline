@@ -1,0 +1,318 @@
+.vl-hidden {
+	display: none;
+}
+
+.vl-margin {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.vl-form-legend {
+	font-size: 20px;
+	color: #0791c4;
+}
+
+.vl-form-label-required {
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.vl-form-readonly {
+	border-color: #dddddd !important;
+	background-color: #fafafa !important;
+}
+
+/* 页眉设置 */
+#top {
+	border-bottom: 2px solid #0088ba;
+}
+
+#logo {
+	height: 51px;
+	margin-left: 50px;
+}
+
+#top-nav {
+	height: 51px;
+	margin-right: 25px;
+}
+
+#top-nav div {
+	font-size: 16px;
+	font-weight: bold;
+	color: #61c1ff;
+	letter-spacing: 1px;
+}
+
+#top-nav div a {
+	color: #333333;
+}
+
+#top-nav div a:hover {
+	color: inherit;
+}
+
+#phone {
+	height: 16px;
+}
+
+/* 页脚设置 */
+#bottom {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-top: 2px solid #0088ba;
+}
+
+/* 错误页面 */
+#error {
+	width: 600px;
+}
+
+#error-alert {
+	padding-top: 150px;
+	padding-bottom: 150px;
+}
+
+/* 登录页面 */
+#login {
+	height: 488px;
+	background: url("../image/login-bg.png");
+}
+
+#login-pic {
+	height: 270px;
+	margin-top: 140px;
+	margin-left: 220px;
+}
+
+#login-panel {
+	height: 330px;
+	width: 360px;
+	margin-top: 100px;
+	margin-right: 280px;
+}
+
+#login-form {
+	padding: 15px 30px;
+}
+
+#login-verification-image {
+	height: 30px;
+	width: 100%;
+	border: 1px solid #dddddd;
+}
+
+/* 注册页面 */
+#register {
+	width: 600px;
+}
+
+#register-banner {
+	margin-left: -50px;
+	margin-right: -50px;
+}
+
+#register-banner .vl-item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 5px solid #e0e0e0;
+	text-align: center;
+	position: relative;
+}
+
+#register-banner .vl-item div {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	margin-top: -17px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #e0e0e0;
+	line-height: 30px;
+	color: #fff;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#register-banner .vl-item.vl-active {
+	border-top-color: #0791c4;
+	color: #0791c4;
+}
+
+#register-banner .vl-item.vl-active div {
+	background: #0791c4;
+}
+
+#register-verification-image {
+	border: 1px solid #dddddd;
+}
+
+#register-alert {
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+
+/* 主页面 */
+#main-top {
+	height: 65px;
+	border-bottom: 1px solid #0088ba;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#main-logo {
+	height: 100%;
+	width: 201px;
+	background: #0088ba url("../image/main-logo.png") no-repeat center;
+}
+
+#main-top-nav {
+	height: 100%;
+	margin-right: 25px;
+}
+
+#main-top-nav div {
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+#main-left-nav {
+	width: 200px;
+	border-right: 1px solid #0088ba;
+	background: #f9f9f9;
+	overflow: auto;
+	position: absolute;
+	top: 66px;
+	bottom: 0px;
+	left: 0px;
+}
+
+#main {
+	position: absolute;
+	top: 66px;
+	bottom: 0px;
+	left: 201px;
+	right: 0px;
+}
+
+#main.maximized {
+	left: 0px;
+}
+
+#main iframe {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#main-handle {
+	height: 50px;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	margin-top: auto;
+	margin-bottom: auto;
+	background: #e5e5e5;
+	line-height: 50px;
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+
+#main-handle:hover {
+	color: #fff;
+}
+
+/* 用户管理 */
+#user {
+	padding: 15px 30px;
+}
+
+#user-collapse-expand i {
+	cursor: pointer;
+}
+
+/* 角色管理 */
+#role {
+	padding: 15px 30px;
+}
+
+#privilege-tree-1 {
+	height: 300px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+
+#privilege-tree-2 {
+	height: 300px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+
+/* 企业管理 */
+#firm {
+	padding: 15px 30px;
+}
+
+/* 企业组织架构 */
+#organization {
+	padding: 15px 30px;
+}
+
+#organization-tree {
+	height: 600px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+
+#organization-tree-1 > div {
+	height: 300px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+
+#organization-tree-2 > div {
+	height: 300px;
+	border: 1px solid #dddddd;
+	overflow: auto;
+}
+
+#firm-map {
+	height: 480px;
+}
+
+/* 我的资料 */
+#profile {
+	padding: 15px 30px;
+}
+
+#profile-switcher {
+	width: 600px;
+}
+
+/* 伙伴类别 */
+#partner-type {
+	padding: 15px 30px;
+}
+
+/* 司机管理 */
+#driver {
+	padding: 15px 30px;
+}
+
+#driver-collapse-expand i {
+	cursor: pointer;
+}
+
+/* 伙伴管理 */
+#partner {
+	padding: 15px 30px;
+}

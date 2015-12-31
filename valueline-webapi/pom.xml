@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>valueline-platform</groupId>
+		<artifactId>valueline-platform</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>valueline-webapi</groupId>
+	<artifactId>valueline-webapi</artifactId>
+	<packaging>war</packaging>
+	<name>valueline-webapi Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cxf-version>2.4.2</cxf-version>
+		<jsr-version>1.0</jsr-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>valueline-server</groupId>
+			<artifactId>valueline-server</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>valueline-data</groupId>
+			<artifactId>valueline-data</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>apache-cxf</artifactId>
+			<version>${cxf-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-servlet_3.0_spec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>jsr311-api</artifactId>
+			<version>${jsr-version}</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>valueline-webapi</finalName>
+	</build>
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.saveDir" value="C:/valueline_files" />
+	<constant name="struts.multipart.maxSize" value="2097152" />
+	<package name="default" extends="json-default">
+		<interceptors>
+			<interceptor name="security" class="com.valueline.module.web.util.SecurityInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">warn</param>
+				</interceptor-ref>
+				<interceptor-ref name="security">
+					<param name="protectedActions">/logout,/main,/blank,/user,/role,/firm,/organization,/organization!listChildNodes,/map,/profile,/upload</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myStack" />
+		<default-class-ref class="com.valueline.module.web.util.ActionSupport" />
+		<global-results>
+			<result name="error">/WEB-INF/view/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+	</package> 
+    <include file="struts2/struts-main.xml" /> 
+    <include file="struts2/struts-saleOrder.xml" /> 
+    <include file="struts2/struts-buyOrder.xml" /> 
+</struts>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>valueline-platform</groupId>
+		<artifactId>valueline-platform</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>valueline-web</groupId>
+	<artifactId>valueline-web</artifactId>
+	<packaging>war</packaging>
+	<name>valueline-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>valueline-server</groupId>
+			<artifactId>valueline-server</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>valueline-data</groupId>
+			<artifactId>valueline-data</artifactId>
+			<version>${project-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.octo.captcha</groupId>
+			<artifactId>jcaptcha</artifactId>
+			<version>2.0-alpha-1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.octo.captcha</groupId>
+			<artifactId>jcaptcha-api</artifactId>
+			<version>2.0-alpha-1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.octo.captcha</groupId>
+			<artifactId>jcaptcha-integration-simple-servlet</artifactId>
+			<version>2.0-alpha-1-SNAPSHOT</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>valueline-web</finalName>
+	</build>
+</project>

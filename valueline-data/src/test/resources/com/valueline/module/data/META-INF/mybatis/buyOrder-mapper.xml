@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.valueline.module.data.order.entity.BuyOrderEntity">
+    <!-- 定义映射关系 -->
+    <resultMap type="com.valueline.module.data.order.entity.BuyOrderEntity"
+        id="buyOrderMap">
+        <id property="id" column="order_id"></id>
+        <result property="note_type" column="note_type"></result>
+        <result property="pay_type" column="pay_type"></result>
+        <result property="create_time" column="create_time"></result>
+        <result property="end_time" column="end_time"></result>
+        <result property="name" column="name"></result>
+        <result property="code" column="code"></result>
+        <result property="owner_conn" column="owner_conn"></result>
+        <result property="consignee_conn" column="consignee_conn"></result>
+
+        <result property="creator" column="creator"></result>
+        <collection property="consignees" resultMap="com.valueline.module.data.order.entity.SaleOrderEntity.consigneeMap"
+        ofType="com.valueline.module.data.order.entity.ConsigneeEntity" />
+    </resultMap>
+    
+    <!-- <resultMap type="com.valueline.module.data.entity.ConsigneeEntity"
+        id="consigneeMap">
+        <result property="id" column="consignee_id"></result>
+        <result property="consignee_name" column="consignee_name"></result>
+        <result property="driver" column="driver"></result>
+        <result property="province" column="province"></result>
+        <result property="city" column="city"></result>
+        <result property="county" column="county"></result>
+        <result property="detail" column="detail"></result>
+        <collection property="productes" resultMap="productMap"
+        ofType="com.valueline.module.data.entity.ProductEntity" />
+    </resultMap>
+    
+    <resultMap type="com.valueline.module.data.entity.ProductEntity"
+		id="productMap">
+		<id property="id" column="product_id"/>
+		<result property="product_name" column="product_name"></result>
+		<result property="quantity" column="quantity"></result>
+		<result property="batch" column="batch"></result>
+		<result property="mfd" column="mfd"></result>
+		<result property="exp" column="exp"></result>
+		<result property="no_tax_price" column="no_tax_price"></result>
+		<result property="tax_price" column="tax_price"></result>
+		<result property="tax" column="tax"></result>
+		<result property="total" column="total"></result>
+	</resultMap> -->
+    
+    <!-- 根据订单ID查询订单相关信息 -->
+    <select id="queryBuyOrderById" resultMap="buyOrderMap"
+        parameterType="int">
+        select s.id as order_id,
+        (select d.NAME from scs_domain_value d where
+		s.NOTE_TYPE=d.VALUE and d.TYPE=25) as note_type,
+		(select d.NAME from
+		scs_domain_value d where s.PAY_TYPE=d.VALUE and d.TYPE=26) as
+		pay_type,
+		s.CREATE_TIME,s.END_TIME,s.CODE,s.NAME,
+		(select p.NAME from
+		scs_person_base p where p.ID=s.OWNER_CONN_POST) as OWNER_CONN,
+		(select
+		p.NAME from scs_person_base p where p.ID=s.CONSIGNEE_CONN_POST) as
+		CONSIGNEE_CONN,
+		
+		(select p.NAME from
+		scs_person_base p where p.ID=s.CREATOR) as CREATOR,
+		
+		c.id as consignee_id,
+		(select p.NAME from
+		scs_person_base p where p.ID=c.CONSIGNEE_POST) as consignee_name,
+		(select p.NAME from scs_person_base p where p.ID=c.DRIVER_POST) as
+		driver,
+		(select d.`NAME` from scs_address a,scs_domain_value d where
+		d.TYPE=11 and d.VALUE=a.PROVINCE and a.ID=c.ADDRESS) as province,
+		(select d.`NAME` from scs_address a,scs_domain_value d where d.TYPE=11
+		and d.VALUE=a.CITY and a.ID=c.ADDRESS) as city,
+		(select d.`NAME` from
+		scs_address a,scs_domain_value d where d.TYPE=11 and d.VALUE=a.COUNTY
+		and a.ID=c.ADDRESS) as county,
+		(select a.DETAIL from scs_address a where a.ID=c.ADDRESS) as detail,
+		
+		p.id as product_id,
+		(select d.NAME from scs_domain_value d
+		where s.NOTE_TYPE=d.VALUE and d.TYPE=20) as product_name,
+		p.QUANTITY,p.BATCH,p.MFD,p.EXP,p.NO_TAX_PRICE,p.TAX_PRICE,p.TAX,p.TOTAL
+		
+		from scs_order_buy s, scs_order_buy_consignee c,scs_order_buy_product p
+		where s.ID= c.ORDER_BUY and c.ID =
+		p.ORDER_BUY_CONSIGNEE and s.ID=#{id}
+    </select>
+    
+</mapper>

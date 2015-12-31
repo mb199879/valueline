@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="root" namespace="/" extends="default">
+		<action name="login" class="com.valueline.module.web.action.Login">
+			<result>/WEB-INF/view/login.jsp</result>
+			<result name="input">/WEB-INF/view/login.jsp</result>
+			<result name="complete" type="redirectAction">
+				<param name="actionName">main</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="logout" class="com.valueline.module.web.action.Logout">
+			<result type="redirectAction">
+				<param name="actionName">login</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="register1">
+			<result>/WEB-INF/view/register1.jsp</result>
+		</action>
+		<action name="register2">
+			<result>/WEB-INF/view/register2.jsp</result>
+		</action>
+		<action name="main">
+			<result>/WEB-INF/view/main.jsp</result>
+		</action>
+		<action name="blank">
+			<result>/WEB-INF/view/blank.jsp</result>
+		</action>
+		<action name="user">
+			<result>/WEB-INF/view/user.jsp</result>
+		</action>
+		<action name="role">
+			<result>/WEB-INF/view/role.jsp</result>
+		</action>
+		<action name="firm">
+			<result>/WEB-INF/view/firm.jsp</result>
+		</action>
+		<action name="organization" class="com.valueline.module.web.action.Organization">
+			<result>/WEB-INF/view/organization.jsp</result>
+			<result name="list" type="json">
+				<param name="root">childNodes</param>
+			</result>
+		</action>
+		<action name="map">
+			<result>/WEB-INF/view/map.jsp</result>
+		</action>
+		<action name="profile" class="com.valueline.module.web.action.Profile">
+			<result>/WEB-INF/view/profile.jsp</result>
+		</action>
+		<action name="partner-type">
+			<result>/WEB-INF/view/partner-type.jsp</result>
+		</action>
+		<action name="driver" class="com.valueline.module.web.action.Driver">
+			<result>/WEB-INF/view/driver.jsp</result>
+		</action>
+		<action name="partner">
+			<result>/WEB-INF/view/partner.jsp</result>
+		</action>
+		<action name="validate-response" class="com.valueline.module.web.action.ValidateResponse">
+			<result type="json">
+				<param name="includeProperties">passed</param>
+			</result>
+		</action>
+		<action name="upload" class="com.valueline.module.web.action.Upload">
+			<result type="json">
+				<param name="includeProperties">attachmentUrl</param>
+			</result>
+		</action>
+	</package>
+</struts>
